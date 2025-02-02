@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>神秘图片生成</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            margin-top: 20px;
+        }
+        .text {
+            font-size: 20px;
+            color: #333;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>神秘图片生成</h1>
+    <img id="generatedImage" src="https://your-server.com/images/default.jpg" alt="生成的图片">
+    <div class="text" id="displayText">点击链接后显示的文字</div>
+    <script>
+        // 获取 URL 参数
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+    
+        // 读取 "type" 参数
+        const type = getQueryParam("type") || "default";
+    
+        // 预定义图片和文字
+        const images = {
+    "pig": "https://example.com/pig.jpg",  // 真实的猪图片 URL
+    "dog": "https://example.com/dog.jpg",  // 真实的狗图片 URL
+    "cat": "https://example.com/cat.jpg",  // 真实的猫图片 URL
+    "default": "https://example.com/default.jpg"  // 真实的默认图片 URL
+};
+
+    
+        const texts = {
+            "pig": "你得到了一个猪头！🐷",
+            "dog": "汪汪！这是一只可爱的小狗！🐶",
+            "cat": "喵喵！这是一只猫咪！🐱",
+            "default": "欢迎来到神秘图片生成页面！"
+        };
+    
+        // 更新图片和文字
+        document.getElementById("generatedImage").src = images[type] || images["default"];
+        document.getElementById("displayText").innerText = texts[type] || texts["default"];
+    </script>    
+</body>
+</html>
